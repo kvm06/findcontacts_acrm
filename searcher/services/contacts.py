@@ -61,6 +61,7 @@ def edit_contact(contact_id, name, phone, email, headers):
 
 def create_lead(contact_id, headers):
     URL = "https://koloevvis.amocrm.ru/api/v4/leads"
+    print("I am here")
     sent_data = [
         {
             "_embedded": {

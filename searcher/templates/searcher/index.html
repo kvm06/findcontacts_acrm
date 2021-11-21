@@ -9,9 +9,12 @@
 </head>
 <body>
     <form method="GET" action="{% url 'get_contact' %}">
-        <input type="text" name="name">
-        <input type="text" name="phone">
-        <input type="text" name="email">
+        <label for="name_id">Имя</label>
+        <input id="name_id" type="text" name="name"><br>
+        <label for="phone_id">Телефон</label>
+        <input id="phone_id" type="text" name="phone"><br>
+        <label for="email_id">Email</label>
+        <input id="email_id" type="text" name="email"><br>
         <input type="submit" value="Отправить">
     </form>
     <p>Авторизация приложения:</p>
