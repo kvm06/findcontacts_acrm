@@ -48,5 +48,7 @@ def refresh_tokens(refresh_token):
     return auth_data
 
 
-def is_token_expired(created_date, expires_in):
-    return datetime.now() >= created_date + timedelta(0, expires_in)
+def is_access_token_expired(created_date, expires_in):
+    expires_on = datetime.strptime(created_date, "%Y-%m-%d %H:%M:%S") + timedelta(0, expires_in)
+    print(expires_on)
+    return datetime.now() >= expires_on

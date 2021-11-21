@@ -23,4 +23,3 @@ def load_client_data():
     with open(f'searcher/services/tokens/integration.json') as f:
         data = json.load(f)
     return data
-
