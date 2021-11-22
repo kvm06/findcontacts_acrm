@@ -15,19 +15,17 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open('/etc/secret_key.txt') as f:
+with open('findcontact/etc/secret_key.txt') as f:
     SECRET_KEY = f.read().strip()
-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['56f9-94-233-241-191.ngrok.io', '127.0.0.1']
+ALLOWED_HOSTS = ['84e4-178-34-160-84.ngrok.io', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [

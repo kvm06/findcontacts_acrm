@@ -27,13 +27,13 @@ def get_contact(request):
         tokens_created_date = tokens['tokens_created_date']
     except KeyError as e:
         # Если токенов нет в базе, перенаправляем на страницу получения кода авторизации
-        redirect('index')
+        return redirect('index')
     # Если токены получены, проверяем не истек ли срок действия access токена.
     if auth.is_access_token_expired(tokens_created_date, expires_in):
         # Если срок действия токена истек, обновляем access токен и refresh токен
         auth.refresh_tokens(refresh_token)
 
-    link = f'https://koloevvis.amocrm.ru/api/v3/contacts'
+    link = f'https://koloevvis.amocrm.ru/api/v4/contacts'
     headers = {'Content-type': 'application/json', 'User-Agent': 'amoCRM-oAuth-client/1.0',
                "Authorization": f"Bearer {access_token}"}
 
@@ -47,7 +47,7 @@ def get_contact(request):
 
     # Проверяем результаты поиска по обоим параметрам
     if r.status_code == 401:  # Пользователь не авторизован
-        redirect('index')
+        return redirect('index')
     elif r.status_code == 204:  # Контакт не найден
         # Создаем новый контакт с полученными данными
         contact_id = contacts.create_new_contact(name, phone, email, headers)

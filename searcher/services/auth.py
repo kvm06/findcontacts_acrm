@@ -8,6 +8,7 @@ def create_initial_tokens(client_data):
     """Функция обменивает код авторизации пользователя на access token и refresh token,
     Полученные токены сохраняются на сервере в json-файле
     """
+
     path = '/oauth2/access_token'
     domain = client_data["base_domain"]
     subdomain = client_data["subdomain"]
